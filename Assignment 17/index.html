@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Alarm</title>
+      <link rel="stylesheet" href="index.css" />
+      <script src="index.js" type="module"></script>
+   </head>
+   <body>
+      <form id="alarmForm">
+         <input type="date" name="alarmDate" value="2020-03-02" />
+         <input type="time" name="alarmTime" />
+         <button data-path="add">Add</button>
+      </form>
+
+      <div>
+         <p>Active Alarms</p>
+         <ul id="activeAlarms"></ul>
+      </div>
+
+      <div>
+         <p>Old Alarms</p>
+         <ul id="oldAlarms"></ul>
+      </div>
+   </body>
+</html>

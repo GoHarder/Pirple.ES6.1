@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Geolocation</title>
+      <link rel="stylesheet" href="index.css" />
+   </head>
+   <body>
+      <div id="map"></div>
+   </body>
+
+   <script>
+      const mapDiv = document.getElementById('map');
+
+      function initMap() {
+         const success = position => {
+            const { latitude: lat, longitude: lng } = position.coords;
+            const options = { zoom: 13, center: { lat, lng } };
+            const map = new google.maps.Map(mapDiv, options);
+            const marker = new google.maps.Marker({ position: { lat, lng }, map });
+         };
+
+         const error = () => {
+            const html = `<p>Error: Can't load map location blocked</p>`;
+            document.body.insertAdjacentHTML('afterbegin', html);
+         };
+
+         navigator.geolocation.getCurrentPosition(success, error);
+      }
+   </script>
+   <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCgiXx7NTf0dfDP5kJ0OZU6vgMusPkHCsA&callback=initMap"></script>
+</html>
